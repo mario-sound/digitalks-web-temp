@@ -1,0 +1,153 @@
+@use "../components/buttons" as buttons;
+@use "../abstracts/abstracts" as abstracts;
+
+@forward "grid";
+@forward "footer";
+@forward "forms";
+@forward "navbar";
+@forward "sidebar";
+@forward "header";
+
+.landing-guide {
+  background: linear-gradient(
+    160deg,
+    rgb(0, 0, 0) 0%,
+    rgba(29, 29, 29, 1) 50%,
+    rgb(49, 49, 49) 100%
+  );
+}
+
+.landing-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+
+  @include abstracts.breakpoint(tablet) {
+    padding: 4rem 2rem;
+  }
+
+  @include abstracts.breakpoint(desktop) {
+    max-width: 1000px;
+    padding: 6rem 4rem;
+  }
+}
+
+.landing-hero {
+  padding: auto;
+}
+
+.landing-title {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0rem;
+
+  @include abstracts.breakpoint(tablet) {
+    font-size: 2.5rem;
+  }
+
+  @include abstracts.breakpoint(desktop) {
+    font-size: 3rem;
+  }
+}
+.monocode-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  padding-left: 2rem;
+  font-size: 0.8rem;
+  @include abstracts.breakpoint(tablet) {
+    padding-left: 4.4rem;
+    font-size: 1rem;
+  }
+
+  @include abstracts.breakpoint(desktop) {
+  }
+}
+.monocode {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: -90px;
+  font-family: monospace;
+  font-size: 1em;
+  font-weight: 100;
+  color: #d1d1d1;
+}
+
+.landing-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #a4a4a4;
+  text-align: left;
+
+  @include abstracts.breakpoint(tablet) {
+    font-size: 1.4rem;
+  }
+
+  @include abstracts.breakpoint(desktop) {
+    font-size: 1.4rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+  }
+}
+
+.landing-instructions {
+  margin-top: 1rem;
+  text-align: left;
+  color: #d1d1d1; // Gris claro para buena lectura sobre fondo oscuro
+  font-size: 1rem;
+  line-height: 1.6;
+  padding-left: 1.5rem;
+
+  @include abstracts.breakpoint(tablet) {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 2rem auto 0;
+  }
+
+  @include abstracts.breakpoint(desktop) {
+    font-size: 1.3rem;
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 1rem;
+  }
+}
+
+.landing-form {
+  iframe {
+    width: 100%;
+    height: 900px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: none;
+
+    @include abstracts.breakpoint(tablet) {
+      height: 900px;
+    }
+
+    @include abstracts.breakpoint(desktop) {
+      height: 900px;
+    }
+  }
+}
+
+.header-landing,
+.footer-landing {
+  background-color: transparent;
+  border: 0;
+  box-shadow: none;
+
+  ul {
+    list-style: none;
+  }
+}

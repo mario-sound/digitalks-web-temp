@@ -1,0 +1,25 @@
+@use "../components/buttons" as buttons;
+@use "../abstracts/abstracts" as abstracts;
+
+// Agregar animaciones para el desplazamiento suave y el resaltado de enlaces activos
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+.scroll-snap {
+  scroll-snap-align: start;
+}
+
+// Inicialmente ocultos y con un pequeño desfase
+.animate-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.animate-reveal {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+// all keyframes

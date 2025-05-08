@@ -1,0 +1,84 @@
+@use "../components/buttons" as buttons;
+@use "../abstracts/abstracts" as abstracts;
+
+.faq {
+  padding: 2rem 2rem;
+  margin: 5rem 0;
+  border-radius: 20px;
+  background-color: abstracts.$white-color;
+  color: abstracts.$blackground;
+  box-shadow: 0 0 20px abstracts.$grey-corp;
+  padding-bottom: 4rem;
+
+  .section-title {
+    font-size: 3rem;
+    font-weight: 800;
+    border-radius: 20px;
+    color: abstracts.$color-corporate;
+    text-shadow: 0 0px 10px rgba(0, 0, 0, 0.5), 2px 2px 4px rgba(0, 0, 0, 0.1);
+    span {
+      font-size: 1.5rem;
+      color: abstracts.$white-color;
+      color: abstracts.$blackground;
+      font-weight: 100;
+    }
+    margin-bottom: 2.5rem;
+    text-align: center;
+  }
+
+  .faq-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    position: relative;
+
+    li {
+      border-radius: 12px;
+      padding-left: 1.5rem;
+      &::before {
+        content: "¿?";
+        position: absolute;
+        left: 0;
+        color: abstracts.$color-corporate;
+      }
+
+      h5 {
+        font-size: 1.2rem;
+        // margin-bottom: 0.8rem;
+        font-weight: 600;
+      }
+
+      p {
+        // display: none;
+        font-size: 1rem;
+        line-height: 1.6;
+        margin: 0;
+
+        &:not(:last-child) {
+          margin-bottom: 0.8rem;
+        }
+      }
+
+      ul {
+        margin-top: 1rem;
+        padding-left: 1.2rem;
+        list-style-type: none;
+
+        li {
+          padding-left: 1.5rem;
+          font-size: 0.95rem;
+          line-height: 1.5;
+          position: relative;
+          &::before {
+            content: "√";
+            position: absolute;
+            left: 0;
+            color: green;
+          }
+        }
+      }
+    }
+  }
+}

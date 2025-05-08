@@ -1,0 +1,44 @@
+@use "../components/buttons" as buttons;
+@use "../abstracts/abstracts" as abstracts;
+
+.respondiendo {
+  padding: 3rem 0;
+  margin-top: 2rem;
+
+  h4 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: left;
+    color: abstracts.$color-corporate;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      font-size: 1rem;
+      position: relative;
+      padding: 1rem 0;
+      &::before {
+        content: url("/img/hand-point-right-regular.svg");
+        position: relative;
+        top: 0.5rem;
+        display: inline-block;
+        width: 1.5rem;
+        height: auto;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  span {
+    display: block;
+    margin-top: 2rem;
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: abstracts.$color-corporate;
+  }
+}

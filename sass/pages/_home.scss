@@ -1,0 +1,171 @@
+@use "../components/buttons" as buttons;
+@use "../abstracts/abstracts" as abstracts;
+
+.hero {
+  position: relative;
+  // overflow: hidden;
+  border-radius: 20px;
+  margin-bottom: 100px;
+}
+
+h1 {
+  margin: 0;
+  padding-bottom: 0;
+}
+.slogan {
+  font-weight: 200;
+  transition: text-shadow 0.5s ease;
+  padding-bottom: 5rem;
+  @include abstracts.breakpoint(phone) {
+  }
+  @include abstracts.breakpoint(tablet) {
+    font-size: 1.5rem;
+  }
+  @include abstracts.breakpoint(tablet-horizontal) {
+    padding-bottom: 1rem;
+  }
+}
+
+.comparativo-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 2rem;
+  margin: 0.5rem 0;
+  margin-bottom: 2rem;
+  transition: all 0.5s ease;
+  @include abstracts.breakpoint(tablet) {
+    margin: 2rem 0;
+  }
+  @include abstracts.breakpoint(tablet-horizontal) {
+    margin: 2.5rem 0;
+  }
+  @include abstracts.breakpoint(desktop) {
+    margin: 3rem 0;
+    flex-direction: row;
+    justify-content: center;
+  }
+  @include abstracts.breakpoint(desktop-xl) {
+  }
+  .comparativo-tradicional,
+  .comparativo-hazlotu,
+  .comparativo-digitalks {
+    position: relative;
+    background-color: abstracts.$blackground;
+    background: linear-gradient(
+      160deg,
+      rgb(49, 49, 49) 0%,
+      rgb(0, 0, 0) 35%,
+      rgb(0, 0, 0) 65%,
+      rgba(29, 29, 29, 1) 100%
+    );
+    color: abstracts.$white-color;
+    border-radius: 20px;
+    text-align: left;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: 0.1fr 1fr;
+    gap: 1rem;
+    align-items: center;
+    transition: all 0.5s ease;
+    padding: 1rem;
+    padding-bottom: 2.5rem;
+    width: 90%;
+    @include abstracts.breakpoint(tablet) {
+      width: 65%;
+      padding: 2rem;
+      padding-bottom: 2.5rem;
+    }
+    @include abstracts.breakpoint(tablet-horizontal) {
+      width: 50%;
+    }
+    @include abstracts.breakpoint(desktopxl) {
+      width: auto;
+      padding: 3rem;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    h2 {
+      font-weight: 400;
+      transition: text-shadow 0.5s ease;
+      text-shadow: 0px 0px 20px abstracts.$blackground, 0px 0px 15px black;
+      margin: 0;
+      @include abstracts.breakpoint(tablet) {
+        font-size: 1.8rem;
+      }
+    }
+
+    p {
+      font-size: 2rem;
+      font-weight: 400;
+    }
+  }
+
+  .comparativo-tradicional,
+  .comparativo-hazlotu {
+    box-shadow: 0 0 10px red;
+    transition: all 0.5s ease;
+    &:hover {
+      .checkelement {
+        font-size: 1.5rem;
+        top: 82%;
+      }
+      box-shadow: 0 0 40px red;
+      h2 {
+        text-shadow: 0px 0px 50px abstracts.$grey-corp;
+      }
+    }
+  }
+  .comparativo-digitalks {
+    img {
+      width: 190px;
+      max-width: 100%;
+      height: auto;
+      filter: drop-shadow(0px 0px 50px black);
+    }
+    box-shadow: 0 0 10px green;
+    transition: all 0.5s ease;
+    &:hover {
+      .checkelement {
+        font-size: 1.5rem;
+        top: 82%;
+      }
+      box-shadow: 0 0 40px green;
+      img {
+        filter: drop-shadow(0px 0px 50px green);
+      }
+    }
+  }
+  .checkelement {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 50%;
+    top: 82%;
+    color: red;
+    font-weight: 100;
+    font-size: 1rem;
+    transition: all 0.5s ease;
+
+    @include abstracts.breakpoint(tablet) {
+      font-size: 1.2rem;
+    }
+    @include abstracts.breakpoint(tablet-horizontal) {
+      top: 85%;
+    }
+    &-ok {
+      color: green;
+    }
+  }
+}
+
+.hero-aclarativo {
+  text-shadow: 0 0 15px abstracts.$grey-corp;
+  font-family: monospace;
+  color: abstracts.$grey-corp;
+  display: flex;
+  justify-content: center;
+}

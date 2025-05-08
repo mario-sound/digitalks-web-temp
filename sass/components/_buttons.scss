@@ -1,0 +1,97 @@
+@use "../abstracts/abstracts" as abstracts;
+
+%button {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 1.2rem;
+  width: 450px;
+  padding: 20px 50px;
+  border-radius: 25px;
+  box-shadow: 0px 5px 12px rgba($color: #000000, $alpha: 0.5);
+  background-color: abstracts.$color-corporate;
+  color: black;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  &:hover {
+    background-color: abstracts.$color-corporate;
+    box-shadow: 0px 5px 12px rgba($color: #000000, $alpha: 1);
+    transform: translateY(-3px);
+  }
+}
+
+.button-container {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+
+  .button {
+    position: relative;
+    display: inline-block;
+    font-family: "Poppins";
+    padding: 1.2rem 3rem;
+    background-color: transparent;
+
+    // Gradiente en el texto
+    background-image: linear-gradient(
+      45deg,
+      abstracts.$color-corporate,
+      abstracts.$white-color
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    cursor: pointer;
+    border: none; // quitar border tradicional
+    border-radius: 20px;
+    overflow: hidden; // para que el pseudo-elemento respete el border-radius
+
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.5s ease;
+
+    // Pseudo-elemento que simula el borde degradado
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      border-radius: inherit;
+      padding: 2px;
+      background: linear-gradient(
+        45deg,
+        abstracts.$color-corporate,
+        abstracts.$white-color
+      );
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+    }
+
+    &:hover {
+      &::before {
+        padding: 0px;
+      }
+      transform: scale(1.05); // Escalado ligero
+      animation: pulse 0.5s infinite; // Animación de pulso
+    }
+  }
+}
+
+// Animación de pulso
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px abstracts.$color-corporate,
+      0 0 20px abstracts.$color-corporate;
+  }
+  50% {
+    box-shadow: 0 0 20px abstracts.$color-corporate,
+      0 0 30px abstracts.$color-corporate;
+  }
+  100% {
+    box-shadow: 0 0 15px abstracts.$color-corporate,
+      0 0 20px abstracts.$color-corporate;
+  }
+}

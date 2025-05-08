@@ -1,0 +1,149 @@
+@use "../components/buttons" as buttons;
+@use "../abstracts/abstracts" as abstracts;
+
+header,
+footer {
+  padding: 20px 0;
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    list-style-type: none;
+
+    // Botón hamburguesa
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 30px;
+      height: 30px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+      &.open {
+        .line1 {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .line2 {
+          opacity: 0;
+        }
+
+        .line3 {
+          transform: rotate(-45deg) translate(5px, -5px);
+        }
+      }
+
+      .burger-line {
+        width: 24px;
+        height: 2px;
+        background-color: abstracts.$white-color;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        transform-origin: center;
+      }
+
+      @include abstracts.breakpoint(tablet-horizontal) {
+        display: none;
+        z-index: 0;
+      }
+    }
+
+    // Menú de navegación
+    ul.nav-links {
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(-10px);
+      overflow: hidden;
+      position: absolute;
+      padding: 0;
+      gap: 0;
+      pointer-events: none;
+      transition: none;
+
+      &.open {
+        max-height: 500px;
+        opacity: 1;
+        transform: translateY(0);
+        transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease,
+          padding 0.3s ease;
+        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+        flex-direction: column;
+        background-color: abstracts.$blackground;
+        background: abstracts.$gradient-background;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 5;
+        border-radius: 0 0 10px 10px;
+        pointer-events: auto;
+      }
+
+      @include abstracts.breakpoint(tablet-horizontal) {
+        all: unset;
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+      }
+
+      li {
+        a {
+          color: abstracts.$white-color;
+          font-weight: 500;
+          text-decoration: none;
+          transition: all 0.2s ease;
+
+          &:hover {
+            color: abstracts.$color-corporate;
+          }
+        }
+      }
+    }
+  }
+
+  // Puedes usar los siguientes breakpoints para más ajustes
+  @include abstracts.breakpoint(phone) {
+    // ajustes para móvil pequeño si necesitas
+  }
+
+  @include abstracts.breakpoint(tablet) {
+    // ajustes para tablet si necesitas
+  }
+
+  @include abstracts.breakpoint(tablet-horizontal) {
+    // ya cubierto arriba
+  }
+
+  @include abstracts.breakpoint(desktop) {
+    // opcional: personalizar si hay layout amplio
+  }
+
+  @include abstracts.breakpoint(desktop-xl) {
+    // opcional
+  }
+}
+
+a.header-logo {
+  figure {
+    img {
+      width: 150px;
+    }
+  }
+}
+
+.links-legal {
+  display: flex;
+  gap: 2rem;
+  a {
+    text-decoration: none;
+    color: abstracts.$white-color;
+    &:hover {
+      color: abstracts.$color-corporate;
+    }
+  }
+}

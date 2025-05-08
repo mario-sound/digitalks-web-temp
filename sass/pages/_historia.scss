@@ -1,0 +1,15 @@
+@use "../components/buttons" as buttons;
+@use "../abstracts/abstracts" as abstracts;
+
+.voice-evolution {
+  display: grid;
+  justify-content: center;
+  gap: 2rem;
+  margin: calc(abstracts.$margin-sides/4.5) 0;
+
+  h4 {
+    font-size: 1.5rem;
+    font-weight: 200;
+    color: abstracts.$color-corporate;
+  }
+}

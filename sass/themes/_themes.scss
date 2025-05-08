@@ -1,0 +1,123 @@
+@use "../components/buttons" as buttons;
+@use "../abstracts/abstracts" as abstracts;
+@forward "default";
+
+h1 {
+  padding-bottom: 100px;
+  font-size: 2.2rem;
+  text-align: left;
+  padding: 50px 0;
+  @include abstracts.breakpoint(tablet) {
+    font-size: 3rem;
+  }
+  @include abstracts.breakpoint(tablet-horizontal) {
+    font-size: 4rem;
+  }
+  @include abstracts.breakpoint(desktop) {
+    font-size: 4rem;
+  }
+}
+
+body {
+  overflow-x: hidden;
+  background: abstracts.$gradient-background;
+}
+
+// Márgenes responsivos para el contenedor principal
+.main-container {
+  margin: 10px abstracts.$margin-side-phone;
+  @include abstracts.breakpoint(tablet) {
+    margin: 10px abstracts.$margin-side-tablet;
+  }
+  @include abstracts.breakpoint(tablet-horizontal) {
+    margin: 10px abstracts.$margin-side-tablet-horizontal;
+  }
+  @include abstracts.breakpoint(desktop) {
+    margin: 10px abstracts.$margin-side-desktop;
+  }
+  @include abstracts.breakpoint(desktop-xl) {
+    margin: 10px abstracts.$margin-sides;
+  }
+}
+
+span.highlight {
+  color: abstracts.$color-corporate;
+}
+
+svg {
+  max-width: 150px;
+}
+
+svg {
+  .cls-1 {
+    fill: abstracts.$color-corporate;
+    fill-rule: evenodd;
+  }
+  .cls-2 {
+    fill: black;
+    fill-rule: evenodd;
+  }
+  .cls-3 {
+    fill: grey;
+  }
+}
+
+.hook {
+  position: relative;
+  color: abstracts.$blackground;
+  padding-bottom: 100px;
+  padding: 100px 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0 - (abstracts.$margin-sides);
+    width: 100vw;
+    overflow: hidden;
+    box-sizing: content-box;
+    height: 100%;
+    background-color: abstracts.$white-color;
+    z-index: -1;
+    left: 0 - (abstracts.$margin-side-lil);
+    @include abstracts.breakpoint(tablet) {
+      left: 0 - (abstracts.$margin-side-tablet);
+    }
+    @include abstracts.breakpoint(tablet-horizontal) {
+      left: 0 - (abstracts.$margin-side-tablet-horizontal);
+    }
+    @include abstracts.breakpoint(desktop) {
+      left: 0 - (abstracts.$margin-side-desktop);
+    }
+    @include abstracts.breakpoint(desktop-xl) {
+      left: 0 - (abstracts.$margin-sides);
+    }
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    text-align: left;
+    @include abstracts.breakpoint(tablet) {
+      font-size: 2rem;
+    }
+    @include abstracts.breakpoint(tablet-horizontal) {
+      font-size: 3rem;
+    }
+    @include abstracts.breakpoint(desktop) {
+      font-size: 3rem;
+    }
+  }
+  p {
+    font-size: 1rem;
+    text-align: left;
+    @include abstracts.breakpoint(tablet) {
+      font-size: 1rem;
+    }
+    @include abstracts.breakpoint(tablet-horizontal) {
+      font-size: 1rem;
+    }
+    @include abstracts.breakpoint(desktop) {
+      font-size: 1rem;
+    }
+  }
+}

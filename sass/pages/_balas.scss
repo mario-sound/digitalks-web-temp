@@ -1,0 +1,134 @@
+@use "../components/buttons" as buttons;
+@use "../abstracts/abstracts" as abstracts;
+
+// Variables específicas para sombras
+$pain-color: red;
+$solution-color: green;
+
+.balasysoluciones {
+  padding: 4rem 0rem;
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto auto auto;
+  gap: 5rem;
+  align-items: start;
+  justify-content: center;
+
+  .voice-pain-points,
+  .voice-solution-points {
+    grid-column: span 4;
+    text-align: left;
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 200;
+      color: abstracts.$color-corporate;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .pain-list,
+  .solution-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+
+    @include abstracts.breakpoint(tablet) {
+      width: 60%;
+      margin: auto;
+    }
+    @include abstracts.breakpoint(tablet-horizontal) {
+      width: auto;
+      display: grid;
+      grid-column: span 2;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include abstracts.breakpoint(desktop) {
+      width: auto;
+      display: grid;
+      grid-column: span 4;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    li {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      display: grid;
+      align-content: baseline;
+      grid-template-rows: 0.1fr 1fr 1fr;
+      padding: 1rem;
+      background-color: abstracts.$blackground;
+      border-radius: 20px;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: abstracts.$white-color;
+      transition: all 0.5s ease;
+
+      @include abstracts.breakpoint(tablet) {
+        height: 20vh;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+      }
+      @include abstracts.breakpoint(tablet-horizontal) {
+        height: 30vh;
+      }
+      @include abstracts.breakpoint(desktop) {
+        height: 40vh;
+      }
+      @include abstracts.breakpoint(desktopxl) {
+        height: 30vh;
+      }
+      p.pain-list-tittle {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: abstracts.$color-corporate;
+      }
+
+      &::before {
+        position: absolute;
+        left: 80%;
+        bottom: 5%;
+        font-size: 1rem;
+      }
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+
+    &.pain-list {
+      display: grid;
+
+      li {
+        box-shadow: 0 0 10px $pain-color;
+
+        &::before {
+          content: "–";
+          color: $pain-color;
+        }
+
+        &:hover {
+          box-shadow: 0 0 20px $pain-color;
+        }
+      }
+    }
+
+    &.solution-list li {
+      box-shadow: 0 0 10px $solution-color;
+
+      &::before {
+        content: "+";
+        color: $solution-color;
+      }
+
+      &:hover {
+        box-shadow: 0 0 20px $solution-color;
+      }
+    }
+  }
+}

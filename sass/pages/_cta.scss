@@ -1,0 +1,76 @@
+@use "../abstracts/abstracts" as abstracts;
+
+.cta {
+  position: relative;
+  background-color: abstracts.$blackground;
+  color: abstracts.$white-color;
+  text-align: center;
+  padding: 4rem 2rem;
+  margin: 2rem auto;
+  border-radius: 20px;
+  box-shadow: 1px 1px 20px abstracts.$grey-corp;
+  text-shadow: 0px 0px 10px abstracts.$blackground;
+
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("/img/background-hero.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: color-burn;
+    opacity: 0.05; // cambia la opacidad aquí
+    z-index: 0;
+  }
+
+  // Asegura que el contenido esté por encima
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  h4 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-button {
+    background-color: abstracts.$color-corporate;
+    color: abstracts.$blackground;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    box-shadow: 1px 1px 20px abstracts.$grey-corp;
+
+    &:hover {
+      background-color: abstracts.$white-color;
+      //   color: darken(abstracts.$color-corporate, 10%);
+    }
+  }
+
+  @include abstracts.breakpoint(tablet) {
+    h4 {
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 1.4rem;
+    }
+    .cta-button {
+      font-size: 1.3rem;
+      padding: 1.2rem 2.4rem;
+    }
+  }
+}
